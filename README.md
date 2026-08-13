@@ -1,6 +1,12 @@
-# Predicting Maize Yield Across Genotypes and Environments
+<div align="center">
 
-> Our entry in an international prediction competition, written to be reproduced end to end.
+<h1>Predicting Maize Yield Across Genotypes and Environments</h1>
+
+<p><strong>Our entry in an international prediction competition, written to be reproduced end to end.</strong></p>
+
+<sub>Ved Piyush · PhD in Statistics · University of Nebraska–Lincoln</sub>
+
+</div>
 
 ---
 
@@ -13,6 +19,19 @@ fewer places.
 predict yields for unseen genotype-environment combinations. We entered as team **DeepCropVision**. The organisers
 compared all entries and published the collective finding — that many different modelling strategies performed
 comparably well — in *Genetics*.
+
+## How it fits together
+
+```mermaid
+flowchart LR
+    A["Field trials"] --> D["Joined table"]
+    B["Weather · soil"] --> D
+    C["Genotype"] --> D
+    D --> E["Imputation<br/>+ splits"]
+    E --> F["Hybrid features"]
+    F --> G["Yield prediction"]
+    style G fill:#0b7a64,color:#fff,stroke:#0b7a64
+```
 
 ## What the code does
 
@@ -36,11 +55,16 @@ the predictors.
 
 ## Notes
 
-Notebook outputs are committed, so the figures and result tables render on GitHub without running anything. Competition data is distributed by the Genomes to Fields initiative and is not redistributed here.
+> Notebook outputs are committed, so the figures and result tables render on GitHub without running anything. Competition data is distributed by the Genomes to Fields initiative and is not redistributed here.
 
 Research code from my doctoral work at the University of Nebraska–Lincoln (4 notebooks). Previously hosted at `github.com/Ved-Piyush/DeepCropVision_maizegxeprediction2022`.
 
 ---
 
-**Ved Piyush, PhD** · Statistics, University of Nebraska–Lincoln  
-[vedpiyush93@gmail.com](mailto:vedpiyush93@gmail.com) · [Google Scholar](https://scholar.google.com/citations?hl=en&user=657rVYAAAAAJ) · [Website](https://vedpiyush93-stack.github.io)
+<div align="center">
+<sub>
+
+**Ved Piyush, PhD** · [Website](https://vedpiyush93-stack.github.io) · [Google Scholar](https://scholar.google.com/citations?hl=en&user=657rVYAAAAAJ) · [vedpiyush93@gmail.com](mailto:vedpiyush93@gmail.com)
+
+</sub>
+</div>
