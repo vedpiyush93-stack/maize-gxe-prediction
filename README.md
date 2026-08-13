@@ -1,36 +1,41 @@
-# Maize Genotype-by-Environment Yield Prediction
+# Predicting Maize Yield Across Genotypes and Environments
 
-> Our Genomes-to-Fields G×E competition entry, written to be reproduced end to end.
+> Our entry in an international prediction competition, written to be reproduced end to end.
 
 [![Genetics](https://img.shields.io/badge/Genetics-2025-1f4e79?style=flat-square)](https://doi.org/10.1093/genetics/iyae195)
 
 ---
 
-Entered as team **DeepCropVision** in the Genomes to Fields Genotype by Environment Prediction
-Competition. The competition compared modelling strategies across many independent teams; the collective
-finding — that diverse strategies all deliver satisfactory yield estimates — was published in *Genetics* (2025).
+**The problem.** A maize variety that performs well in Iowa may do poorly in Texas. Yield depends on the
+variety (**genotype**), on the growing conditions (**environment**), and on the interaction between the two — and
+that interaction is where the difficulty lives. Predicting it well means a breeder can test fewer varieties in
+fewer places.
 
-Genotype-by-environment prediction is a variance-decomposition problem wearing a machine-learning costume:
-yield depends on genotype, on environment, and on an interaction that is exactly where the difficulty lives.
+**The competition.** The Genomes to Fields initiative released years of field trial data and invited teams to
+predict yields for unseen genotype-environment combinations. We entered as team **DeepCropVision**. The organisers
+compared all entries and published the collective finding — that many different modelling strategies performed
+comparably well — in *Genetics*.
 
-## Reproducing the results
+## What the code does
 
-1. `Data_PreProcessing.ipynb` builds `final_data_all_with_traits.csv`, joining training and test features for every data type except genotype hybrids.
-2. `Hybrid_Features.ipynb` adds the genotype hybrid features.
-3. The remaining notebooks train and evaluate the models.
+Four notebooks forming a linear pipeline. Data preprocessing joins the trial records with weather, soil and
+management information. Because field data is inevitably incomplete, a dedicated notebook handles **imputation** of
+missing values alongside the train/test split. Hybrid genotype features are constructed separately, since a hybrid
+variety derives from two parent lines and needs its own encoding. The modelling notebook then fits and evaluates
+the predictors.
 
-## Notebooks
+## Running it
 
-**4 notebooks**, committed with their outputs intact so every figure and result table renders on GitHub without re-running anything.
+1. `Data_PreProcessing.ipynb` builds the joined table `final_data_all_with_traits.csv`.
+2. `Hybrid_Features.ipynb` adds genotype features for hybrid varieties.
+3. `Train_Test_Split_Imputations.ipynb` handles missing values and builds the splits.
+4. `Modeling_Script.ipynb` fits and evaluates the models.
 
-- `Data_PreProcessing.ipynb`
-- `Hybrid_Features.ipynb`
-- `Modeling_Script.ipynb`
-- `Train_Test_Split_Imputations.ipynb`
+## Notes
 
-## Related publications
+Notebook outputs are committed, so the figures and result tables render on GitHub without running anything. Competition data is distributed by the Genomes to Fields initiative and is not redistributed here.
 
-- [Genetics 229(2), iyae195](https://doi.org/10.1093/genetics/iyae195)
+Research code from my doctoral work at the University of Nebraska–Lincoln (4 notebooks). Previously hosted at `github.com/Ved-Piyush/DeepCropVision_maizegxeprediction2022`.
 
 ## Citation
 
@@ -43,11 +48,7 @@ yield depends on genotype, on environment, and on an interaction that is exactly
 }
 ```
 
-## About this repository
-
-Research code from my doctoral work at the University of Nebraska–Lincoln. Trained model checkpoints and bulk datasets are excluded from version control; the notebooks regenerate them. Previously hosted at `github.com/Ved-Piyush/DeepCropVision_maizegxeprediction2022`.
-
 ---
 
 **Ved Piyush, PhD** · Statistics, University of Nebraska–Lincoln  
-[vedpiyush93@gmail.com](mailto:vedpiyush93@gmail.com) · [Google Scholar](https://scholar.google.com/citations?hl=en&user=657rVYAAAAAJ) · [LinkedIn](https://www.linkedin.com/in/ved-piyush)
+[vedpiyush93@gmail.com](mailto:vedpiyush93@gmail.com) · [Google Scholar](https://scholar.google.com/citations?hl=en&user=657rVYAAAAAJ) · [Website](https://vedpiyush93-stack.github.io)
