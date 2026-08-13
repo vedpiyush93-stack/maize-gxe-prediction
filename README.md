@@ -31,6 +31,12 @@ the predictors.
 3. `Train_Test_Split_Imputations.ipynb` handles missing values and builds the splits.
 4. `Modeling_Script.ipynb` fits and evaluates the models.
 
+
+## Where to look first
+
+- **`Data_PreProcessing.ipynb`** — run first — everything downstream needs its output
+- **`Modeling_Script.ipynb`** — the models and their evaluation
+
 ## Notes
 
 Notebook outputs are committed, so the figures and result tables render on GitHub without running anything. Competition data is distributed by the Genomes to Fields initiative and is not redistributed here.
